@@ -200,6 +200,102 @@ nav {
   }
 }
 
+/* MODAL STYLING */
+/* Modal Background */
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    z-index: 1000;
+}
+
+/* Hide Modal */
+
+.hidden {
+    display: none;
+}
+
+/* Modal Box */
+
+.modal-content {
+    width: 90%;
+    max-width: 400px;
+
+    background: #111;
+    color: white;
+
+    border: 3px solid crimson;
+    border-radius: 10px;
+
+    padding: 30px;
+
+    text-align: center;
+
+    box-shadow: 0 0 20px crimson;
+}
+
+.modal-content h2{
+    margin-bottom:20px;
+    color:crimson;
+}
+
+.modal-content p{
+    margin:15px 0;
+}
+
+.modal-content h3{
+    margin:20px 0;
+    color:white;
+}
+
+.modal-content ul {
+    list-style-position: inside;
+    text-align: center;
+}
+
+.modal-content button{
+
+    background:crimson;
+    color:white;
+
+    border:none;
+
+    padding:12px 25px;
+
+    cursor:pointer;
+
+    border-radius:5px;
+
+    font-size:1rem;
+}
+
+.modal-content button:hover{
+
+    background:red;
+}
+
+.modal-content {
+    animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
 
 /* Footer Styling */
 footer {

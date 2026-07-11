@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./style.css">
-    <script src="./app.js"></script>
+    <script src="./app.js" defer></script>
     <title>Mikes 🏍️ Transport</title>
 </head>
 
@@ -19,9 +19,9 @@
                     <li><a href="Link to IG">Instagram</a></li>
                 </ul>
             </li> -->
-            <li>About Us</li>
-            <li>Contact</li>
-            <li class="nav-right">Emergency Pickup</li>
+            <li id="about">About Us</li>
+            <li id="contact">Contact</li>
+            <li class="nav-right" id="pickup">Emergency Pickup</li>
         </ul>
     </nav>
     <main>
@@ -44,8 +44,48 @@
         </section> -->
 
     </main>
-
     <!-- <div> Contact Component </div> -->
+
+
+        <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <h2>Feature Still in Progress</h2>
+
+            <p>
+                This section of the website is currently under construction.
+            </p>
+
+            <p>
+                For immediate assistance, please call:
+            </p>
+
+            <h2>(267) 404-6453</h2>
+
+            <p>To schedule a future pickup - Please text the following details:</p>
+            <ul>
+                Your Bike's:
+                <li>
+                    Year
+                </li>
+                <li>
+                    Make
+                </li>
+                <li>
+                    Model
+                </li>
+                <li>
+                    General Pickup Area
+                </li>
+                <li>
+                    Dropoff Location
+                </li>
+            </ul>
+
+            <h2>We will contact you as soon as possible.</h2>
+
+            <button id="closeModal">Close</button>
+        </div>
+    </div>
 
     <footer>
         <p> Copyright © Mike's Bike Transport 2026 </p>
