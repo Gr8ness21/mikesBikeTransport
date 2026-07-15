@@ -80,6 +80,23 @@ nav {
   margin-left: auto;
 }
 
+/* HAMBURGER NAV */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.hamburger span {
+
+  width: 30px;
+  height: 3px;
+  background: crimson;
+  border-radius: 2px;
+}
+
 /* HERO SECTION */
 .hero {
   min-height: 100vh;
@@ -109,62 +126,68 @@ nav {
    MOBILE - 425px
 =========================== */
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width:425px) {
 
-  body {
-    width: 100%;
-    overflow-x: hidden;
-  }
+    body {
+        width:100%;
+        overflow-x:hidden;
+    }
 
-  nav {
-    width: 100%;
-  }
+    nav {
+        width:100%;
+        position:relative;
+    }
 
-  .nav-list {
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 10px;
-  }
 
-  .nav-list li {
-    margin: 0;
-    font-size: 1.1rem;
-  }
+    /* HAMBURGER */
 
-  .nav-right {
-    margin-left: 0;
-  }
+    .hamburger {
+        display:flex;
+        flex-direction:column;
+        gap:6px;
+        cursor:pointer;
+        padding:15px;
+        align-items:flex-end;
+    }
 
-  .hero {
-    height: auto;
-    min-height: 100vh;
-    /* padding: 80px 20px; */
-    background-attachment: scroll;
-  }
 
-  .hero-content {
-    width: 90%;
-    max-width: 350px;
-    /* padding: 20px; */
-    text-align: center;
-  }
+    .hamburger span {
+        width:35px;
+        height:4px;
+        background:crimson;
+        border-radius:99px;
+    }
 
-  h6 {
-    font-size: 2.5rem;
-    line-height: 1.1;
-  }
 
-  h5 {
-    font-size: 1.2rem;
-    margin-top: 10px;
-  }
+    /* HIDE DESKTOP NAV */
 
-  img {
-    max-width: 100%;
-    height: auto;
-  }
+    .nav-list {
+        display:none;
+        flex-direction:column;
+        align-items:center;
+        width:100%;
+        background:#111;
+        padding:20px 0;
+    }
+
+
+    /* SHOW WHEN CLICKED */
+
+    .nav-list.active {
+        display:flex;
+    }
+
+
+    .nav-list li {
+        margin:15px 0;
+        font-size:1.1rem;
+    }
+
+
+    .nav-right {
+        margin-left:0;
+    }
+
 }
 
 /* ===========================
@@ -185,110 +208,102 @@ nav {
     font-size: 1rem;
   }
 
-  .nav-list {
-    gap: 12px;
-    padding: 15px;
-  }
-
-  .nav-list li {
-    font-size: 1rem;
-  }
 }
 
 /* MODAL STYLING */
 /* Modal Background */
 
 .modal {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,.8);
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, .8);
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    z-index: 1000;
+  z-index: 1000;
 }
 
 /* Hide Modal */
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 /* Modal Box */
 
 .modal-content {
-    width: 90%;
-    max-width: 400px;
+  width: 90%;
+  max-width: 400px;
 
-    background: #111;
-    color: white;
+  background: #111;
+  color: white;
 
-    border: 3px solid crimson;
-    border-radius: 10px;
+  border: 3px solid crimson;
+  border-radius: 10px;
 
-    padding: 30px;
+  padding: 30px;
 
-    text-align: center;
+  text-align: center;
 
-    box-shadow: 0 0 20px crimson;
+  box-shadow: 0 0 20px crimson;
 }
 
-.modal-content h2{
-    margin-bottom:20px;
-    color:crimson;
+.modal-content h2 {
+  margin-bottom: 20px;
+  color: crimson;
 }
 
-.modal-content p{
-    margin:15px 0;
+.modal-content p {
+  margin: 15px 0;
 }
 
-.modal-content h3{
-    margin:20px 0;
-    color:white;
+.modal-content h3 {
+  margin: 20px 0;
+  color: white;
 }
 
 .modal-content ul {
-    list-style-position: inside;
-    text-align: center;
+  list-style-position: inside;
+  text-align: center;
 }
 
-.modal-content button{
+.modal-content button {
 
-    background:crimson;
-    color:white;
+  background: crimson;
+  color: white;
 
-    border:none;
+  border: none;
 
-    padding:12px 25px;
+  padding: 12px 25px;
 
-    cursor:pointer;
+  cursor: pointer;
 
-    border-radius:5px;
+  border-radius: 5px;
 
-    font-size:1rem;
+  font-size: 1rem;
 }
 
-.modal-content button:hover{
+.modal-content button:hover {
 
-    background:red;
+  background: red;
 }
 
 .modal-content {
-    animation: slideDown 0.3s ease;
+  animation: slideDown 0.3s ease;
 }
 
 @keyframes slideDown {
-    from {
-        transform: translateY(-50px);
-        opacity: 0;
-    }
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
 
-    to {
-        transform: translateY(0);
-        opacity: 1;
-    }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 
