@@ -37,4 +37,5 @@ modal.addEventListener("click", (event) => {
 
 hamburger.addEventListener("click", () => {
     navList.classList.toggle("active");
+    hamburger.classList.toggle("active");
 });
