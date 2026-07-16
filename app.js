@@ -6,9 +6,8 @@ const navList = document.getElementById("navList");
 document.querySelectorAll(".nav-list li").forEach(item => {
 
     item.addEventListener("click", () => {
-
         navList.classList.remove("active");
-
+        hamburger.classList.remove("active");
     });
 
 });
