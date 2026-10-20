@@ -1,106 +1,35 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./style.css">
-    <script src="./app.js" defer></script>
-    <title>Mikes 🏍️ Transport</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mike's Bikes | Press to Enter</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Kaushan+Script&family=Barlow:wght@400;500;600&display=swap"
+        rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js" defer></script>
 </head>
 
-<body>
-    <nav>
-        <!-- hamburger nav -->
-        <div class="hamburger" id="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
+<body><a href="https://mikes-bikes-frontend.onrender.com/">
+
+        <main class="landing">
+            <p class="kicker">Emergency + Scheduled</p>
+            <h1>MIKE'S BIKES</h1>
+            <p class="script">We'll Come <em>Get You</em>!</p>
+        </main>
+
+        <div id="intro-gate" class="intro-gate" role="button" tabindex="0" aria-label="Press to enter Mike's Bikes">
+            <video id="intro-video" autoplay muted loop playsinline webkit-playsinline preload="auto"
+                disablepictureinpicture>
+                <source src="intro.mp4" type="video/mp4" />
+            </video>
+            <p class="intro-gate-hint">Press to Enter</p>
         </div>
-
-
-        <ul class="nav-list" id="navList">
-            <!-- <li class="dropdown">
-                <a href="#Content">🏍️ Content</a>
-                <ul class="dropdown-content">
-                    <li><a href="Link to Channel">Youtube</a></li>
-                    <li><a href="Link to IG">Instagram</a></li>
-                </ul>
-            </li> -->
-            <li id="about">About Us</li>
-            <li id="contact">Contact</li>
-            <li class="nav-right" id="pickup">Emergency Pickup</li>
-        </ul>
-    </nav>
-    <main>
-
-        <!-- Hero Section -->
-        <section class="hero">
-            <h6>Mike's Bike Transport</h6>
-            <h5>"We'll Come Get You"</h5>
-            <br>
-            <h6>New App In Development</h6>
-            <h5>UPDATES COMING SOON</h5>
-        </section>
-
-        <hr>
-
-        <!-- About Section -->
-        <!-- <section class="about">
-            <h6>About Us</h6>
-            <p>Our Mission: To get you and your bike off the road safely.</p>
-            <br>
-            <p>Should the worst happen and you find yourself stuck, stranded, or in need of support, we can get there.</p>
-            <p>Not an emergency? Just looking to transport your bike without breaking the bank, we can help there too!</p>
-        </section> -->
-
-    </main>
-    <!-- <div> Contact Component </div> -->
-
-
-    <div id="modal" class="modal hidden">
-        <div class="modal-content">
-            <h2>For immediate assistance, please call:</h2>
-
-            <hr>
-            <br>
-            <h2>(267) 404-6453</h2>
-            <hr>
-
-            <p>To schedule a future pickup <br>
-                Please text the following details:</p>
-            <ul>
-                Your Bike's:
-                <li>
-                    Year
-                </li>
-                <li>
-                    Make
-                </li>
-                <li>
-                    Model
-                </li>
-                <li>
-                    General Pickup Area
-                </li>
-                <li>
-                    Dropoff Location
-                </li>
-            </ul>
-
-            <br>
-            <hr>
-
-            <h2>We will contact you as soon as possible.</h2>
-
-            <button id="closeModal">Close</button>
-        </div>
-    </div>
-
-    <footer>
-        <p> Copyright © Mike's Bike Transport 2026 </p>
-    </footer>
-
+    </a>
 </body>
 
 </html>

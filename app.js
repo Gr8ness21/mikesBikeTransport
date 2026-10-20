@@ -1,40 +1,76 @@
-const modal = document.getElementById("modal");
-const closeBtn = document.getElementById("closeModal");
-const hamburger = document.getElementById("hamburger");
-const navList = document.getElementById("navList");
+(function () {
+  const gate = document.getElementById('intro-gate');
+  const video = document.getElementById('intro-video');
+  if (!gate) return;
 
-document.querySelectorAll(".nav-list li").forEach(item => {
+  document.body.style.overflow = 'hidden';
 
-    item.addEventListener("click", () => {
-        navList.classList.remove("active");
-        hamburger.classList.remove("active");
-    });
+  function kickPlay() {
+    if (!video) return;
+    video.muted = true;
+    video.defaultMuted = true;
+    video.loop = true;
+    video.playsInline = true;
+    video.setAttribute('muted', '');
+    video.setAttribute('playsinline', '');
+    video.setAttribute('webkit-playsinline', 'true');
+    const play = video.play();
+    if (play && play.catch) play.catch(function () {});
+  }
 
-});
+  kickPlay();
+  if (video) {
+    video.addEventListener('loadeddata', kickPlay);
+    video.addEventListener('canplay', kickPlay);
+  }
 
-const navItems = [
-    document.getElementById("about"),
-    document.getElementById("contact"),
-    document.getElementById("pickup")
-];
+  let start = null;
+  let leaving = false;
 
-navItems.forEach(item => {
-    item.addEventListener("click", () => {
-        modal.classList.remove("hidden");
-    });
-});
+  function enter() {
+    if (leaving) return;
+    leaving = true;
+    gate.classList.add('is-wiping');
+  }
 
-closeBtn.addEventListener("click", () => {
-    modal.classList.add("hidden");
-});
-
-modal.addEventListener("click", (event) => {
-    if (event.target === modal) {
-        modal.classList.add("hidden");
+  function onKey(e) {
+    if (leaving || !document.body.contains(gate)) return;
+    if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') {
+      e.preventDefault();
+      enter();
     }
-});
+  }
 
-hamburger.addEventListener("click", () => {
-    navList.classList.toggle("active");
-    hamburger.classList.toggle("active");
-});
+  gate.addEventListener('pointerdown', function (e) {
+    start = { x: e.clientX, y: e.clientY };
+    kickPlay();
+  });
+
+  gate.addEventListener('pointerup', function (e) {
+    const from = start;
+    start = null;
+    if (!from) {
+      enter();
+      return;
+    }
+    const dist = Math.hypot(e.clientX - from.x, e.clientY - from.y);
+    if (dist > 36 || dist < 12) enter();
+  });
+
+  gate.addEventListener('pointercancel', function () {
+    start = null;
+  });
+
+  gate.addEventListener('animationend', function () {
+    if (!gate.classList.contains('is-wiping')) return;
+    gate.remove();
+    document.body.style.overflow = '';
+    window.removeEventListener('keydown', onKey);
+  });
+
+  window.addEventListener('keydown', onKey);
+  document.addEventListener('visibilitychange', function () {
+    if (document.visibilityState === 'visible') kickPlay();
+  });
+  window.addEventListener('pageshow', kickPlay);
+})();
